@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0rem;
+   background: rgb(0,212,255);
+background: -moz-linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1) 100%);
+background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00d4ff",endColorstr="#020024",GradientType=1);
+
+}
+
+.seja-bem-vindo{
+    font-size: 5rem;
+    color: white;
+}
+
+
+.login-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 90vw;
+    height: 90vh;
+
+    gap: 6rem;
+    text-align: center;
+}
+
+.login-container .infos-login{
+    display: flex;
+    flex-direction: column;
+    background-color: #1ab5e0;
+    width: 40%;
+    height: 80%;
+    gap: 1rem;
+    padding: 3rem;
+
+    border-radius: 0.5rem;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.login-container .infos-login label{
+   
+    text-align: start;
+    
+}
+
+.login-container .infos-login input{
+  height: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.35rem;
+}
+
+.login-container .infos-login img{
+   width: 7rem;
+   margin: 0 auto;
+}
+
+.login-container .infos-login button{
+    height: 3rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.35rem;
+    background-color: rgb(25,151,31);
+    color: white;
+    transition: 0.2s;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.login-container .infos-login form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.login-container .infos-login button:hover{
+  cursor: pointer;
+  background-color: rgb(20, 118, 25);
+}

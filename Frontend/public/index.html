@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/styles/styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="../src/scripts/cadastroApi.js" defer></script>
+    <script src="../src/scripts/smoothScroll.js" defer></script>
+
+    <link rel="stylesheet" href="../src/styles/swiper-bundle.min.css" />
+
+    <title>Green World</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="../src/assets/LogoGreenWorld.png" alt="Logo GreenWorld" />
+          <h3>Green World</h3>
+        </div>
+        <div>
+          <ul class="list-items">
+            <li>
+              <a id="home" href="#">Home</a>
+            </li>
+            <li>
+              <a id="quem-somos" href="#quem-somos">Quem somos</a>
+            </li>
+            <li>
+              <a id="servicos" href="#servicos">Serviços</a>
+            </li>
+            <li>
+              <a id="depoimentos-link" href="#depoimentos">Depoimentos</a>
+            </li>
+            <li>
+              <a id="formulario-cadastro" href="#formulario">Fazer Cadastro</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <button id="area-de-login">
+            <a href="../public/login.html">Área de Login</a>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="home">
+        <div class="img-principal">
+          <img src="../src/assets/LogoGreenWorld.png" alt="" />
+        </div>
+        <div class="sessao-principal">
+          <span id="titulo"
+            >O projeto para <br />
+            um <span class="destaque">mundo</span><br />
+            mais <span class="destaque">verde</span> <br
+          /></span>
+          <p>
+            O Projeto Green World visa transformar a gestão dos recursos
+            naturais através da captação de água da chuva. Com soluções
+            sustentáveis e tecnologias avançadas, nosso objetivo é otimizar o
+            uso da água e promover a sustentabilidade. Junte-se a nós para
+            construir um futuro mais verde e sustentável.
+          </p>
+
+          <button><a href="#formulario">Quero Fazer Parte!</a></button>
+        </div>
+      </section>
+
+      <section>
+        <div id="quem-somos" class="sobre-nos">
+          <div class="conteudo">
+            <h2><span id="titulo">Quem Somos</span></h2>
+            <p id="quem-somos-text">
+              Nós do projeto Green World somos jovens apaixonados por tecnlogia,
+              mas que também se preocupam com o futuro da humanidade, por isso
+              estamos comprometidos com a educação e a conscientização sobre a
+              importância da gestão sustentável da água. Através de workshops,
+              campanhas informativas e parcerias com outras organizações,
+              trabalhamos para inspirar e capacitar as pessoas a adotarem
+              práticas sustentáveis em seu dia a dia. Nós desenvolvemos e
+              implementamos tecnologias de ponta para a captação, armazenamento
+              e reutilização da água da chuva. Nossas soluções são projetadas
+              para serem eficientes, acessíveis e ambientalmente responsáveis,
+              permitindo que comunidades, empresas e indivíduos façam a sua
+              parte na conservação dos recursos hídricos.
+            </p>
+          </div>
+
+          <div class="grid">
+            <div class="card"><img src="../src/assets/card1.png" alt="" /></div>
+            <div class="card"><img src="../src/assets/card2.png" alt="" /></div>
+            <div class="card"><img src="../src/assets/card3.png" alt="" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="servicos">
+        <div id="servicos" class="conteudo-inicial">
+          <h2 id="servicos-text"><span id="titulo">Serviços</span></h2>
+          <p>
+            O projeto Green World, oferece uma gama de serviços especializados
+            ao público, entre eles: Workshops, Auditorias, Tecnlogia e Inovação
+            Sustentável e a Instalação de nossos equipamentos. Entre em contato
+            conosco para mais informações.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div id="azul" class="card">
+            <div class="img-box">
+              <img
+                src="../src/assets/icon-workshop.png"
+                alt="Icone de workshop GreenWorld"
+              />
+            </div>
+            <div class="conteudo-card">
+              <h3>Workshops</h3>
+              <p>
+                Os workshops da Green World são projetados para educar e
+                capacitar os participantes sobre práticas sustentáveis e a
+                gestão eficiente dos recursos naturais. Durante os workshops,
+                especialistas da área compartilham conhecimentos sobre a
+                importância da captação e do uso responsável da água da chuva.
+              </p>
+            </div>
+          </div>
+          <div id="verde" class="card">
+            <div class="img-box">
+              <img
+                src="../src/assets/icon-auditoria.png"
+                alt="Icone de workshop GreenWorld"
+              />
+            </div>
+
+            <div class="conteudo-card">
+              <h3>Auditorias</h3>
+              <br />
+              <p>
+                As auditorias realizadas pela Green World avaliam a
+                sustentabilidade das operações de empresas e comunidades. Nossos
+                especialistas realizam uma análise detalhada dos processos e
+                práticas atuais, identificando áreas de desperdício e
+                oportunidades para melhorias.
+              </p>
+            </div>
+          </div>
+          <div id="verde" class="card">
+            <div class="img-box">
+              <img
+                src="../src/assets/icon-tec.png"
+                alt="Icone de workshop GreenWorld"
+              />
+            </div>
+            <div class="conteudo-card">
+              <h3>Inovação e Tecnologia</h3>
+              <br />
+              <p>
+                Nós desenvolvemos e implementamos tecnologias inovadoras para
+                promover a sustentabilidade e a conservação de recursos. Nossa
+                equipe de especialistas trabalha em estreita colaboração com
+                startups e instituições de pesquisa para criar soluções
+                avançadas de sustentabilidade.
+              </p>
+            </div>
+          </div>
+          <div id="azul" class="card">
+            <div class="img-box">
+              <img
+                src="../src/assets/icon-instalacao.png"
+                alt="Icone de workshop GreenWorld"
+              />
+            </div>
+            <div class="conteudo-card">
+              <h3>Instalação de Equipamentos</h3>
+              <br />
+              <p>
+                Nós oferecemos serviços especializados na instalação de
+                equipamentos para captação e reutilização de água da chuva.
+                Nossa equipe de técnicos altamente qualificados realiza uma
+                avaliação inicial do local para determinar a melhor configuração
+                do sistema.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="depoimentos" class="depoimentos-section">
+        <div class="texto">
+          <h2 id="titulo">Depoimentos</h2>
+          <p>
+            Veja o que os nossos clientes estão comentando dos nossos serviços!
+          </p>
+        </div>
+        <div class="depoimentos mySwiper">
+          <div class="depoimento-container swiper-wrapper">
+            <div class="slide swiper-slide">
+              <p>
+                "Trabalhar com o Projeto Green World foi uma experiência
+                enriquecedora. As soluções de captação e reutilização de água da
+                chuva que eles propuseram se integraram perfeitamente aos
+                projetos arquitetônicos sustentáveis que desenvolvemos. Além de
+                contribuir para a preservação do meio ambiente, conseguimos
+                agregar valor aos nossos projetos e oferecer algo único aos
+                nossos clientes."
+              </p>
+
+              <div class="cliente">
+                <div class="ft-perfil">
+                  <img src="../src/assets/retrato-homem1.jpg" alt="" />
+                </div>
+
+                <div class="identificacao-cliente">
+                  <h4>Lucas Almeida</h4>
+                  <p>Arquiteto</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide swiper-slide">
+              <p>
+                "Como estudante de engenharia ambiental, fiquei impressionado
+                com a abordagem inovadora do Projeto Green World. As tecnologias
+                de captação de água da chuva que eles desenvolveram são
+                incrivelmente eficientes e fáceis de implementar. Graças a eles,
+                consegui aplicar esses conceitos em meus projetos acadêmicos e
+                inspirar outros colegas a adotarem práticas sustentáveis."
+              </p>
+
+              <div class="cliente">
+                <div class="ft-perfil">
+                  <img src="../src/assets/retrato-homem2.jpg" alt="" />
+                </div>
+
+                <div class="identificacao-cliente">
+                  <h4>Rafael Lima</h4>
+                  <p>Estudante de Engenharia</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide swiper-slide">
+              <p>
+                "Participar do Projeto Green World foi uma experiência
+                transformadora para nossa empresa. As soluções de captação e
+                reutilização de água da chuva implementadas por eles não só
+                reduziram nossos custos operacionais, mas também nos ajudaram a
+                alcançar nossos objetivos de sustentabilidade de maneira
+                eficiente. Estamos comprometidos em continuar essa parceria para
+                um futuro mais verde."
+              </p>
+
+              <div class="cliente">
+                <div class="ft-perfil">
+                  <img src="../src/assets/retrato-mulher1.jpg" alt="" />
+                </div>
+
+                <div class="identificacao-cliente">
+                  <h4>Ana Beatriz</h4>
+                  <p>Gerente de Sustentabilidade</p>
+                </div>
+              </div>
+            </div>
+            <div class="slide swiper-slide">
+              <p>
+                "O Projeto Green World transformou a maneira como gerenciamos os
+                recursos hídricos em nossa empresa. As soluções sustentáveis e o
+                suporte constante da equipe foram fundamentais para reduzirmos
+                nosso consumo de água e promovermos uma cultura de
+                sustentabilidade entre nossos colaboradores. Recomendo
+                fortemente a todos que buscam fazer a diferença no meio
+                ambiente."
+              </p>
+
+              <div class="cliente">
+                <div class="ft-perfil">
+                  <img src="../src/assets/retrato-mulher2.jpg" alt="" />
+                </div>
+
+                <div class="identificacao-cliente">
+                  <h4>Mariana Costa</h4>
+                  <p>Empresária</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
+
+      <section class="formulario-contato">
+        <div class="top-area-form">
+          <div id="form-cadas" class="content">
+            <h1>Ficou interessado em nossos serviços?</h1>
+            <p>
+              Junte-se a nós na jornada rumo a um futuro mais verde e
+              sustentável! Ficaríamos honrados em fazer parte da sua vida e
+              ajudá-lo(a) a transformar a gestão dos recursos naturais. Faça seu
+              cadastro em nosso site preenchendo o formulário abaixo.
+              <br /><br />
+              Estamos ansiosos para colaborar e criar um impacto positivo
+              juntos!
+            </p>
+          </div>
+
+          <img src="../src/assets/card1.png" alt="" />
+        </div>
+        <div class="bottom-area-form">
+          <div id="formulario" class="forms blur-background">
+            <form id="form-contact" action="" method="post">
+              <h1>Formulário de Cadastro</h1>
+              <div class="sessao">
+                <label for="name">Nome:</label>
+                <input id="name" type="text" required />
+                <label for="email">Email:</label>
+                <input id="email" type="email" required />
+              </div>
+
+              <div class="sessao">
+                <label for="password">Senha:</label>
+                <input id="password" type="password" required />
+                <label for="password-confirmed">Confirme sua senha:</label>
+                <input id="password-confirmed" type="password" required />
+              </div>
+
+              <div class="sessao">
+                <label for="tel">Telefone:</label>
+                <input
+                  id="tel"
+                  type="tel"
+                  pattern="[0-9]{11}"
+                  placeholder="(DDD)99999-9999"
+                  required
+                />
+
+                <label for="">Interesse em:</label>
+                <select id="servicos" name="servicos">
+                  <option value="workshops">Workshops</option>
+                  <option value="auditorias">Auditorias</option>
+                  <option value="tec">Inovação e Tecnologia</option>
+                  <option value="equip" selected>
+                    Instalação de Equipamentos
+                  </option>
+                </select>
+              </div>
+              <button>Fazer Cadastro</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--TODO -> Criar um script que faça um fetch (requisicao - POST) para o localhost:8080/usuarios para adicionar os dados recebidos do formulario no BD-->
+
+    <script src="../src/scripts/swiper-bundle.min.js"></script>
+    <script src="../src/scripts/swiper-script.js"></script>
+  </body>
+</html>

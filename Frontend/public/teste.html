@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Projeto
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button class="btn btn-light" data-toggle="modal" data-target="#carregarDadosModal">Carregar Dados</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-light" data-toggle="modal" data-target="#cadastrarImovelModal">Cadastrar Imóvel</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-light" data-toggle="modal" data-target="#solicitarServicoModal">Solicitar um Serviço</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-light" id="sairButton">Sair</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Modals -->
+<!-- Carregar Dados Modal -->
+<div class="modal fade" id="carregarDadosModal" tabindex="-1" role="dialog" aria-labelledby="carregarDadosModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carregarDadosModalLabel">Carregar Dados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Volume do Reservatório Escolhido:</p>
+                <p>Volume Atual:</p>
+                <p>Volume Economizado:</p>
+                <p>Dias Restantes:</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cadastrar Imovel Modal -->
+<div class="modal fade" id="cadastrarImovelModal" tabindex="-1" role="dialog" aria-labelledby="cadastrarImovelModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cadastrarImovelModalLabel">Cadastrar Imóvel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="rua">Rua:</label>
+                        <input type="text" class="form-control" id="rua">
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" class="form-control" id="bairro">
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" class="form-control" id="cidade">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <select class="form-control" id="estado">
+                            <option value="">Selecione</option>
+                            <!-- Adicione os estados aqui -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ocupantes">Quantidade de Ocupantes:</label>
+                        <input type="number" class="form-control" id="ocupantes">
+                    </div>
+                    <div class="form-group">
+                        <label for="telhado">Área do Tel

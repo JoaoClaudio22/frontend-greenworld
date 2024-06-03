@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenWorld Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../src/styles/dashboard.css" />
+    <link rel="stylesheet" href="../src/styles/dashboard.css" />
+    <script src="../src/scripts/dashboardAuth.js" defer></script>
+    <script src="../src/scripts/dashboard.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="loader"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <div class="d-flex justify-content-center align-items-center">
+          <img
+            src="../src/assets/LogoGreenWorld.png"
+            width="70"
+            height="70"
+            alt="GreenWorld"
+          />
+          <h4 class="ml-3">GreenWorld</h4>
+        </div>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <button
+              class="btn btn-primary mr-4"
+              data-toggle="modal"
+              data-target="#cadastrarResidenciaModal"
+            >
+              Cadastrar Imóvel
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-primary mr-4"
+              data-toggle="modal"
+              data-target="#solicitarNovosServicosModal"
+            >
+              Solicitar Serviços
+            </button>
+          </li>
+          <li class="nav-item">
+            <button id="logoutButton" class="btn btn-danger">Sair</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <h1 class="mb-4 p-4">Dashboard GreenWorld</h1>
+    <h5 class="mb-5">
+      Aqui você encontra a central de nosso sistema. Fique por dentro do o que
+      acontece com seus reservatórios e fique a vontade para solicitar novos
+      servicos
+    </h5>
+    <div id="avisoDiv" class="d-none">
+      <h2
+        class="bg-info p-4 flex justify-content-center align-items-center text-center"
+      >
+        Você ainda não possui imoveis cadastrados!
+      </h2>
+    </div>
+    <div>
+      <table class="table">
+        <thead class="bg-light">
+          <tr class="text-center">
+            <th scope="col">Identificador da Residencia:</th>
+            <th scope="col">Endereço:</th>
+            <th scope="col">Quantidade de Moradores:</th>
+            <th scope="col">Area do Telhado (m2):</th>
+            <th scope="col">Opçoes</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal Detalhes-->
+    <div class="modal" id="detalhesModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Detalhes do Imóvel</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              id="fecharModalBtn"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body text-center" id="modal-detalhes">
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-light">
+                Volume Total do Reservatório
+              </div>
+              <div class="card-body">
+                <p id="volumeTotal"></p>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-light">
+                Volume Atual do Reservatório
+              </div>
+              <div class="card-body">
+                <p id="volumeAtual"></p>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-light">
+                Porcentagem Utilizada
+              </div>
+              <div class="card-body">
+                <p id="porcentagemRestante"></p>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-light">
+                Dias de Autonomia
+              </div>
+              <div class="card-body">
+                <p id="autonomia"></p>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-light">
+                Economia de Água
+              </div>
+              <div class="card-body">
+                <p id="economia"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Cadastro de Residência -->
+    <div
+      class="modal fade"
+      id="cadastrarResidenciaModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="cadastrarResidenciaModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cadastrarResidenciaModalLabel">
+              Cadastrar Imóvel
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form id="cadastrarResidenciaForm">
+              <div class="form-group">
+                <label for="rua">Rua</label>
+                <input type="text" class="form-control" id="rua" required />
+              </div>
+              <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input type="text" class="form-control" id="bairro" required />
+              </div>
+              <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <input type="text" class="form-control" id="cidade" required />
+              </div>
+              <div class="form-group">
+                <label for="estado">Estado</label>
+                <select class="form-control" id="estado" required>
+                  <option value="">Selecione</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="moradores">Quantidade de Ocupantes</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="moradores"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="telhado">Área do Telhado (m²) </label>
+                <input type="number" class="form-control" id="telhado" />
+                <a href="#">Não sei a área total. E agora?</a>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Efetuar Cadastro
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Edicao de Residência -->
+    <div
+      class="modal fade"
+      id="editarResidenciaModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="cadastrarResidenciaModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editarResidenciaModalLabel">
+              Editar Imóvel
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form id="editarResidenciaForm">
+              <div class="form-group">
+                <label for="rua">Rua</label>
+                <input type="text" class="form-control" id="Irua" required />
+              </div>
+              <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input type="text" class="form-control" id="Ibairro" required />
+              </div>
+              <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <input type="text" class="form-control" id="Icidade" required />
+              </div>
+              <div class="form-group">
+                <label for="estado">Estado</label>
+                <select class="form-control" id="Iestado" required>
+                  <option value="">Selecione</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="moradores">Quantidade de Ocupantes</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="Imoradores"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="telhado">Área do Telhado (m²) </label>
+                <input type="number" class="form-control" id="Itelhado" />
+                <a href="#">Não sei a área total. E agora?</a>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Efetuar Edicao
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal Servicos-->
+    <div
+      class="modal fade"
+      id="solicitarNovosServicosModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="solicitarServicoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="solicitarNovosServicosModal">
+              Solicitar Servico
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="solicitarServicoForm">
+              <div class="form-group">
+                <label for="estado">Serviço</label>
+                <select class="form-control" id="estado" required>
+                  <option value="">Selecione</option>
+                  <option value="WorkShop">WorkShop</option>
+                  <option value="Auditorias">Auditorias</option>
+                  <option value="Tecnologia e Inovacao">
+                    Tecnologia e Inovacao
+                  </option>
+                  <option value="Instalacao de Equipamentos">
+                    Instalacao de Equipamentos
+                  </option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Solicitar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
